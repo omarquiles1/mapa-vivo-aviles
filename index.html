@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mapa Vivo de Avilés</title>
+  <meta name="description" content="Mira cuánta gente hay antes de ir. Propuesta de gemelo vivo de Avilés en 2D y 3D para habitantes y para el Ayuntamiento. Prototipo para Hackea Avilés 2026.">
+  <meta name="theme-color" content="#F3EFE6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#101716" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/og-image.png">
+  <!-- Open Graph / Twitter: imagen renderizada de la propia maqueta -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Mapa Vivo de Avilés · Mira cuánta gente hay antes de ir">
+  <meta property="og:description" content="El gemelo vivo de Avilés: ver en 3D, desde la calle y antes de ir, cuánta gente hay en cada sitio. Prototipo para Hackea Avilés 2026.">
+  <meta property="og:image" content="assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mapa Vivo de Avilés">
+  <meta name="twitter:description" content="Mira cuánta gente hay antes de ir. En 2D, en 3D y a pie de calle.">
+  <meta name="twitter:image" content="assets/img/og-image.png">
+  <link rel="preload" href="assets/fonts/archivo-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/atkinson-hyperlegible-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./assets/vendor/three/three.module.min.js",
+        "three/addons/": "./assets/vendor/three/addons/"
+      }
+    }
+  </script>
+  <script type="module" src="assets/js/main.js"></script>
+</head>
+<body>
+  <!-- Sprite de iconos propios: trazo uniforme de 1,75 px, sin emojis -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-cultura" viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></symbol>
+      <symbol id="i-ocio" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></symbol>
+      <symbol id="i-comercio" viewBox="0 0 24 24"><path d="M4 9h16l-1.5-4h-13zM5 9v11h14V9M10 20v-6h4v6"/></symbol>
+      <symbol id="i-deporte" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17M3.5 12h17M6 6c3.5 3 3.5 9 0 12M18 6c-3.5 3-3.5 9 0 12"/></symbol>
+      <symbol id="i-servicios" viewBox="0 0 24 24"><path d="M12 3.5 19 6v5.5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M12 8.5v6M9 11.5h6"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
+      <symbol id="i-pausa" viewBox="0 0 24 24"><path d="M8.5 5.5v13M15.5 5.5v13"/></symbol>
+      <symbol id="i-cerrar" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-si" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-no" viewBox="0 0 24 24"><path d="M7 12h10"/></symbol>
+      <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M4 12h15M13.5 6.5 19 12l-5.5 5.5"/></symbol>
+      <symbol id="i-qr" viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2.5v2.5H14zM18 18h2v2h-2zM14 19.5h2M19.5 14v2"/></symbol>
+      <symbol id="i-campana" viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15zM10 20.5h4"/></symbol>
+      <symbol id="i-ojo-no" viewBox="0 0 24 24"><path d="M3 12s3.3-6 9-6c1.6 0 3 .5 4.2 1.1M21 12s-3.3 6-9 6c-1.6 0-3-.5-4.2-1.1M4 20 20 4"/><path d="M9.8 14.2a3 3 0 0 1 4.4-4.4"/></symbol>
+      <symbol id="i-camara-no" viewBox="0 0 24 24"><path d="M3.5 7.5h3l1.5-2h8l1.5 2h3v11h-17zM4 20 20 4"/><circle cx="12" cy="13" r="3"/></symbol>
+      <symbol id="i-movil" viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></symbol>
+      <symbol id="i-hex" viewBox="0 0 24 24"><path d="M12 3 19.8 7.5v9L12 21l-7.8-4.5v-9z"/></symbol>
+      <symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></symbol>
+      <symbol id="i-papelera" viewBox="0 0 24 24"><path d="M5 7h14M10 7V4.5h4V7M6.5 7l1 13h9l1-13"/></symbol>
+      <symbol id="i-interruptor" viewBox="0 0 24 24"><rect x="3" y="7.5" width="18" height="9" rx="4.5"/><circle cx="16.5" cy="12" r="2.5"/></symbol>
+      <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3.5 19 6v5.5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-policia" viewBox="0 0 24 24"><path d="M4 8.5 12 5l8 3.5-1 2H5zM6 10.5v1.5a6 6 0 0 0 12 0v-1.5"/><path d="M8 20c.5-2 2-3 4-3s3.5 1 4 3"/></symbol>
+      <symbol id="i-telefono" viewBox="0 0 24 24"><path d="M6.5 4h3l1.5 4-2 1.5a10 10 0 0 0 5.5 5.5L16 13l4 1.5v3a2 2 0 0 1-2 2A15.5 15.5 0 0 1 4.5 6a2 2 0 0 1 2-2z"/></symbol>
+      <symbol id="i-barco" viewBox="0 0 24 24"><path d="M3.5 15h17l-2.5 4.5H6zM6 15V9.5h12V15M12 9.5V4.5M9 7h3"/></symbol>
+      <symbol id="i-llave" viewBox="0 0 24 24"><path d="M14.5 4.5a4.5 4.5 0 0 0-4.2 6.1L4 17v3h3l6.4-6.3a4.5 4.5 0 0 0 5.7-5.6l-2.6 2.6-2.6-.6-.6-2.6z"/></symbol>
+      <symbol id="i-edificio" viewBox="0 0 24 24"><path d="M5 20.5V4h9v16.5M14 9.5h5v11M3 20.5h18M8 7.5h3M8 11h3M8 14.5h3"/></symbol>
+      <symbol id="i-datos" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.5"/><path d="M5 6v12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></symbol>
+      <symbol id="i-grupo" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3"/><circle cx="17" cy="9.5" r="2.3"/><path d="M3.5 19.5c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5M15 14.6c2.8-.4 4.9 1.2 5.5 4.4"/></symbol>
+      <symbol id="i-persona" viewBox="0 0 24 24"><circle cx="12" cy="6" r="2.5"/><path d="M12 9v6M8 12l4-2.5 4 2.5M9.5 21l2.5-6 2.5 6"/></symbol>
+      <symbol id="i-capas" viewBox="0 0 24 24"><path d="m12 4 9 4.5-9 4.5-9-4.5zM3 12.5 12 17l9-4.5M3 16.5 12 21l9-4.5"/></symbol>
+      <symbol id="i-vr" viewBox="0 0 24 24"><path d="M3.5 8h17v8.5h-5.5l-3-2.5-3 2.5H3.5z"/><circle cx="8" cy="12" r="1.5"/><circle cx="16" cy="12" r="1.5"/></symbol>
+      <symbol id="i-rayo" viewBox="0 0 24 24"><path d="M13 3 5.5 13.5H12L11 21l7.5-10.5H12z"/></symbol>
+      <symbol id="i-candado" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5M12 14.5v2.5"/></symbol>
+      <symbol id="i-euro" viewBox="0 0 24 24"><path d="M17.5 6.5a6.5 6.5 0 1 0 0 11M4.5 10.5h9M4.5 13.5h9"/></symbol>
+      <symbol id="i-tendencia" viewBox="0 0 24 24"><path d="M3.5 17.5 9 12l4 3.5 7.5-8M15 7.5h5.5V13"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <!-- 4.1 Cabecera fija -->
+  <header class="cabecera" id="cabecera">
+    <div class="cabecera__dentro">
+      <a class="logo" href="#inicio" aria-label="Mapa Vivo · Avilés, ir al inicio">
+        <span class="logo__punto" aria-hidden="true"></span>
+        <span class="logo__texto">Mapa Vivo <span class="logo__sep" aria-hidden="true">·</span> <span class="logo__ciudad">Avilés</span></span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Secciones">
+        <ul class="nav__lista">
+          <li><a href="#mapa">El mapa</a></li>
+          <li><a href="#para-ti">Para ti</a></li>
+          <li><a href="#privacidad">Privacidad</a></li>
+          <li><a href="#ayuntamiento">Para el Ayuntamiento</a></li>
+          <li><a href="#hoja-de-ruta">Hoja de ruta</a></li>
+        </ul>
+      </nav>
+      <a class="boton boton--vivo boton--peque cabecera__cta" href="#mapa">Explora el mapa</a>
+      <button class="cabecera__menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+        <svg class="icono" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- 4.2 Hero con la maqueta viva -->
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+      <div class="hero__visor" id="visor-hero" role="img" aria-label="Maqueta 3D ilustrativa del casco histórico de Avilés y la ría, con puntos de luz que representan a la gente. Datos de ejemplo de un sábado de Antroxu."></div>
+      <div class="hero__velo" aria-hidden="true"></div>
+      <div class="hero__contenido envoltura">
+        <p class="etiqueta-ejemplo"><span class="punto-vivo" aria-hidden="true"></span>Datos de ejemplo · Sábado de Antroxu, <span id="hero-hora" class="mono">18:30</span></p>
+        <!--
+          Alternativas de titular probadas sobre la maqueta (elegida: «Mira cuánta gente hay antes de ir.»,
+          porque es la única que explica el producto entero en una frase y funciona sola en el hero):
+          <h1>Avilés, en vivo.</h1>
+          <h1>En Avilés sí hay planes. Ahora puedes verlos.</h1>
+          <h1>Tu ciudad, en tiempo real y en 3D.</h1>
+        -->
+        <h1 class="hero__titulo" id="hero-titulo">Mira cuánta gente hay <em>antes de ir.</em></h1>
+        <p class="hero__sub">El Mapa Vivo de Avilés enseña en 2D y en 3D qué está pasando ahora en la ciudad. Para que salgas más y para que el Ayuntamiento se anticipe.</p>
+        <ul class="pildoras" aria-label="Garantías">
+          <li class="pildora"><svg class="icono" aria-hidden="true"><use href="#i-camara-no"/></svg>Sin cámaras</li>
+          <li class="pildora"><svg class="icono" aria-hidden="true"><use href="#i-ojo-no"/></svg>Sin seguirte</li>
+          <li class="pildora"><svg class="icono" aria-hidden="true"><use href="#i-datos"/></svg>Datos oficiales</li>
+        </ul>
+        <div class="hero__botones">
+          <a class="boton boton--vivo" href="#mapa">Explora el mapa <svg class="icono" aria-hidden="true"><use href="#i-flecha"/></svg></a>
+          <a class="boton boton--contorno" href="#ayuntamiento">Soy del Ayuntamiento</a>
+        </div>
+        <p class="hero__privacidad">Sin cámaras. Sin seguirte. Tú decides.</p>
+      </div>
+      <p class="hero__nota" aria-hidden="true">Representación ilustrativa, no a escala</p>
+    </section>
+
+    <!-- 4.3 El problema -->
+    <section class="seccion problema" id="problema" aria-labelledby="problema-titulo">
+      <div class="envoltura">
+        <p class="antetitulo">El problema</p>
+        <h2 class="titulo-seccion" id="problema-titulo">«En Avilés <s>no hay nada</s>»</h2>
+        <p class="entradilla">Esto es Sara, nuestra <strong>usuaria tipo</strong>. Tiene 22 años, estudia Enfermería y llegó de Cáceres sin conocer a nadie. Es tímida. Le encantaría salir por Avilés, pero le da miedo llegar sola a un sitio vacío o lleno de grupos cerrados.</p>
+
+        <ol class="vinetas">
+          <li class="vineta">
+            <svg class="vineta__dibujo" viewBox="0 0 240 150" aria-hidden="true">
+              <rect x="0" y="0" width="240" height="150" rx="10" class="dib-fondo"/>
+              <path d="M20 128h200" class="dib-trazo"/>
+              <rect x="96" y="22" width="48" height="90" rx="8" class="dib-movil"/>
+              <path d="M106 40h28M106 52h18M106 64h24" class="dib-trazo-suave"/>
+              <text x="120" y="96" text-anchor="middle" class="dib-texto">?</text>
+              <circle cx="58" cy="70" r="4" class="dib-luz"/><circle cx="186" cy="58" r="3" class="dib-luz"/><circle cx="200" cy="84" r="2.5" class="dib-luz"/>
+            </svg>
+            <p class="vineta__num mono">Sábado, 17:40</p>
+            <h3>Mira el móvil y no sabe qué hay</h3>
+            <p>Las redes de cada sitio, la web del Ayuntamiento, carteles en la calle… La información está repartida en diez lugares distintos.</p>
+          </li>
+          <li class="vineta">
+            <svg class="vineta__dibujo" viewBox="0 0 240 150" aria-hidden="true">
+              <rect x="0" y="0" width="240" height="150" rx="10" class="dib-fondo"/>
+              <path d="M20 128h200" class="dib-trazo"/>
+              <path d="M70 128V58h100v70" class="dib-trazo"/>
+              <path d="M70 58l50-24 50 24" class="dib-trazo"/>
+              <rect x="104" y="88" width="32" height="40" class="dib-trazo"/>
+              <rect x="82" y="66" width="76" height="16" rx="3" class="dib-cartel"/>
+              <text x="120" y="78" text-anchor="middle" class="dib-texto-peque">CERRADO</text>
+            </svg>
+            <p class="vineta__num mono">18:05</p>
+            <h3>Los horarios que encuentra fallan</h3>
+            <p>El buscador y el asistente de IA le dan horarios que ya no valen. Llega y está cerrado. O no hay nadie.</p>
+          </li>
+          <li class="vineta">
+            <svg class="vineta__dibujo" viewBox="0 0 240 150" aria-hidden="true">
+              <rect x="0" y="0" width="240" height="150" rx="10" class="dib-fondo"/>
+              <path d="M20 128h200" class="dib-trazo"/>
+              <path d="M30 128V90h40v38M36 100h10M54 100h10" class="dib-trazo-suave"/>
+              <path d="M120 112h80" class="dib-trazo"/>
+              <path d="M150 112l12-14h20l10 14" class="dib-trazo"/>
+              <circle cx="160" cy="118" r="6" class="dib-trazo"/><circle cx="188" cy="118" r="6" class="dib-trazo"/>
+              <path d="M200 70h20M212 64l8 6-8 6" class="dib-trazo"/>
+              <text x="210" y="56" text-anchor="middle" class="dib-texto-peque">GIJÓN</text>
+            </svg>
+            <p class="vineta__num mono">18:30</p>
+            <h3>Se queda en el piso o se va a Gijón</h3>
+            <p>Mientras tanto, a diez minutos de su casa, miles de personas bajan Galiana disfrazadas. Ella no lo sabía.</p>
+          </li>
+        </ol>
+
+        <p class="cierre-grande">No es que no haya planes. <span class="subrayado-vivo">Es que nadie te los enseña.</span></p>
+
+        <div class="apps" aria-labelledby="apps-titulo">
+          <h3 class="apps__titulo" id="apps-titulo">Avilés ya tiene apps, pero no el ahora</h3>
+          <ul class="apps__lista">
+            <li class="app-ficha"><span class="app-ficha__nombre">PIDA</span><span class="app-ficha__que">Información y trámites municipales.</span></li>
+            <li class="app-ficha"><span class="app-ficha__nombre">Cuida Avilés</span><span class="app-ficha__que">Avisar de desperfectos en la calle.</span></li>
+            <li class="app-ficha"><span class="app-ficha__nombre">Cita Previa OAR</span><span class="app-ficha__que">Pedir cita para trámites de recaudación.</span></li>
+            <li class="app-ficha"><span class="app-ficha__nombre">EnBiciAvilés</span><span class="app-ficha__que">Usar la bici pública.</span></li>
+            <li class="app-ficha"><span class="app-ficha__nombre">Avilés AR</span><span class="app-ficha__que">Patrimonio en realidad aumentada.</span></li>
+            <li class="app-ficha app-ficha--vivo"><span class="app-ficha__nombre">¿Y cuál te dice dónde hay gente ahora mismo?</span><span class="app-ficha__que"><svg class="icono" aria-hidden="true"><use href="#i-flecha"/></svg> Mapa Vivo. No las sustituye: las conecta.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.4 La demo interactiva -->
+    <section class="seccion demo" id="mapa" aria-labelledby="demo-titulo">
+      <div class="envoltura">
+        <p class="antetitulo">La demo · El gemelo vivo</p>
+        <h2 class="titulo-seccion" id="demo-titulo">Pasea por Avilés antes de salir de casa</h2>
+        <p class="entradilla">Un sábado de Antroxu de ejemplo, de 16:00 a 22:00. Mueve el reloj y mira cómo se llena Galiana con el Descenso. Cambia a vista de mapa, sobrevuela la ría o baja a la calle.</p>
+      </div>
+
+      <div class="demo__marco">
+        <div class="visor" id="visor-demo" tabindex="0" role="application" aria-roledescription="visor 3D"
+             aria-label="Maqueta interactiva de Avilés. Usa 1, 2 y 3 para cambiar de vista; flechas o WASD para moverte en primera persona; Esc para salir. La misma información está en la lista de lugares de debajo."
+             aria-describedby="visor-resumen">
+          <div class="visor__lienzo" id="visor-lienzo"></div>
+
+          <div class="visor__arriba">
+            <div class="segmentado" role="radiogroup" aria-label="Vista del mapa">
+              <button type="button" class="segmentado__btn" role="radio" aria-checked="false" data-vista="2d"><span>2D</span><kbd>1</kbd></button>
+              <button type="button" class="segmentado__btn" role="radio" aria-checked="true" data-vista="3d"><span>3D</span><kbd>2</kbd></button>
+              <button type="button" class="segmentado__btn" role="radio" aria-checked="false" data-vista="1p"><span>Primera persona</span><kbd>3</kbd></button>
+            </div>
+            <p class="visor__etiqueta"><span class="punto-vivo" aria-hidden="true"></span>Datos de ejemplo de un sábado de Antroxu<span class="visor__etiqueta-sec"> · Representación ilustrativa, no a escala</span></p>
+          </div>
+
+          <div class="leyenda" aria-label="Leyenda">
+            <p class="leyenda__titulo">Afluencia</p>
+            <ul class="leyenda__lista">
+              <li><span class="nivel nivel--tranquilo"><span class="barras" aria-hidden="true"><i></i><i></i><i></i></span>Tranquilo</span></li>
+              <li><span class="nivel nivel--animado"><span class="barras" aria-hidden="true"><i></i><i></i><i></i></span>Animado</span></li>
+              <li><span class="nivel nivel--lleno"><span class="barras" aria-hidden="true"><i></i><i></i><i></i></span>Lleno</span></li>
+            </ul>
+            <ul class="leyenda__lista leyenda__fuente">
+              <li><span class="muestra-borde muestra-borde--estimado" aria-hidden="true"></span>Estimado</li>
+              <li><span class="muestra-borde muestra-borde--medido" aria-hidden="true"></span>Medido</li>
+            </ul>
+          </div>
+
+          <div class="visor__abajo">
+            <div class="reloj">
+              <button type="button" class="reloj__play" id="reloj-play" aria-label="Reproducir la tarde" aria-pressed="false">
+                <svg class="icono icono--play" aria-hidden="true"><use href="#i-play"/></svg>
+                <svg class="icono icono--pausa" aria-hidden="true"><use href="#i-pausa"/></svg>
+              </button>
+              <label class="reloj__rotulo" for="reloj-rango">Hora</label>
+              <input class="reloj__rango" id="reloj-rango" type="range" min="0" max="360" step="15" value="150" aria-valuetext="18:30">
+              <output class="reloj__hora mono" id="reloj-hora" for="reloj-rango">18:30</output>
+            </div>
+            <div class="filtros" role="group" aria-label="Filtrar lugares por categoría">
+              <button type="button" class="filtro" aria-pressed="true" data-cat="cultura"><svg class="icono" aria-hidden="true"><use href="#i-cultura"/></svg>Cultura</button>
+              <button type="button" class="filtro" aria-pressed="true" data-cat="ocio"><svg class="icono" aria-hidden="true"><use href="#i-ocio"/></svg>Ocio</button>
+              <button type="button" class="filtro" aria-pressed="true" data-cat="comercio"><svg class="icono" aria-hidden="true"><use href="#i-comercio"/></svg>Comercio</button>
+              <button type="button" class="filtro" aria-pressed="true" data-cat="deporte"><svg class="icono" aria-hidden="true"><use href="#i-deporte"/></svg>Deporte</button>
+              <button type="button" class="filtro" aria-pressed="true" data-cat="servicios"><svg class="icono" aria-hidden="true"><use href="#i-servicios"/></svg>Servicios</button>
+            </div>
+          </div>
+
+          <p class="visor__evento" id="visor-evento" aria-hidden="true"></p>
+          <div class="visor__aviso" id="visor-aviso" hidden></div>
+          <div class="visor__1p-ayuda" id="visor-1p-ayuda" hidden>
+            <span>WASD o flechas para caminar · arrastra para mirar · toca el suelo para ir · <kbd>Esc</kbd> para salir</span>
+          </div>
+          <div class="joystick" id="joystick" hidden aria-hidden="true"><span class="joystick__mando"></span></div>
+
+          <!-- Ficha de lugar: panel lateral en escritorio, hoja inferior en móvil -->
+          <aside class="ficha" id="ficha" aria-labelledby="ficha-nombre" hidden>
+            <div class="ficha__asa" aria-hidden="true"></div>
+            <button type="button" class="ficha__cerrar" id="ficha-cerrar" aria-label="Cerrar ficha">
+              <svg class="icono" aria-hidden="true"><use href="#i-cerrar"/></svg>
+            </button>
+            <div class="ficha__contenido" id="ficha-contenido"></div>
+          </aside>
+        </div>
+
+        <p class="visor__pistas">
+          <span>Arrastra para girar</span><span>Rueda para acercar</span><span>WASD o flechas para caminar</span><span>Toca el suelo para ir allí</span>
+        </p>
+        <p class="sr-only" id="visor-resumen" aria-live="polite"></p>
+
+        <div class="envoltura lugares">
+          <h3 class="lugares__titulo">Todos los lugares del mapa</h3>
+          <p class="lugares__nota">La misma información que en la maqueta, en una lista accesible. Pulsa un lugar para abrir su ficha.</p>
+          <ul class="lugares__lista" id="lista-lugares"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.5 Para ti -->
+    <section class="seccion para-ti" id="para-ti" aria-labelledby="para-ti-titulo">
+      <div class="envoltura">
+        <p class="antetitulo rotulo-publico">Para la ciudad</p>
+        <h2 class="titulo-seccion" id="para-ti-titulo">Avilés tiene planes. Así los vas a encontrar.</h2>
+        <p class="entradilla">Sin registrarte, sin descargar nada pesado: una web que se instala en el móvil. Así funcionará.</p>
+
+        <ul class="funciones">
+          <li class="funcion funcion--ancha">
+            <div class="funcion__mini mini-semaforo" aria-hidden="true">
+              <span class="mini-semaforo__fila"><span class="nivel nivel--tranquilo"><span class="barras"><i></i><i></i><i></i></span>Tranquilo</span><span class="mini-semaforo__lugar">Parque de Ferrera</span></span>
+              <span class="mini-semaforo__fila"><span class="nivel nivel--animado"><span class="barras"><i></i><i></i><i></i></span>Animado</span><span class="mini-semaforo__lugar">Plaza de España</span></span>
+              <span class="mini-semaforo__fila"><span class="nivel nivel--lleno"><span class="barras"><i></i><i></i><i></i></span>Lleno</span><span class="mini-semaforo__lugar">Calle Galiana</span></span>
+            </div>
+            <h3>Mira antes de ir</h3>
+            <p>Cada zona te dice si está tranquila, animada o llena. Con palabras y barras, no solo con colores. Y te avisa de si el dato es estimado o medido.</p>
+          </li>
+          <li class="funcion">
+            <div class="funcion__mini mini-calle" aria-hidden="true">
+              <svg viewBox="0 0 200 110"><path d="M0 110 70 40h60l70 70" class="mini-calle__suelo"/><path d="M70 40V10M130 40V10M40 72V22M160 72V22" class="mini-calle__fachada"/><g class="mini-calle__gente"><circle cx="92" cy="70" r="4"/><circle cx="110" cy="62" r="3"/><circle cx="118" cy="80" r="5"/><circle cx="84" cy="88" r="5.5"/><circle cx="102" cy="52" r="2.5"/></g></svg>
+            </div>
+            <h3>Pasea en 3D</h3>
+            <p>Baja a la calle en primera persona y mira el ambiente antes de salir: cómo está Galiana, si hay sitio en la plaza.</p>
+          </li>
+          <li class="funcion">
+            <div class="funcion__mini mini-aviso" aria-hidden="true">
+              <span class="mini-aviso__burbuja"><svg class="icono"><use href="#i-campana"/></svg>Hoy: taller de disfraces en Ferrera</span>
+            </div>
+            <h3>Solo lo que te interesa</h3>
+            <p>Eliges tus temas y te avisamos solo de eso. Si quieres, también por WhatsApp. Y si no quieres avisos, no hay avisos.</p>
+          </li>
+          <li class="funcion">
+            <div class="funcion__mini mini-qr" aria-hidden="true">
+              <svg class="mini-qr__codigo"><use href="#i-qr"/></svg><span class="mini-qr__barrido"></span>
+            </div>
+            <h3>Escanea y descubre</h3>
+            <p>Cada monumento tendrá su QR. Lo escaneas y el mapa te abre su ficha y te cuenta su historia.</p>
+          </li>
+          <li class="funcion">
+            <div class="funcion__mini mini-premio" aria-hidden="true">
+              <span class="mini-premio__tarjeta"><svg class="icono"><use href="#i-qr"/></svg><span>Tu QR</span><strong>−10 %</strong></span>
+            </div>
+            <h3>Tu QR, tu premio</h3>
+            <p>Tu QR personal te da descuentos en los comercios de Avilés que se adhieran. Salir por tu ciudad tiene premio.</p>
+          </li>
+          <li class="funcion funcion--pronto">
+            <div class="funcion__mini mini-grupo" aria-hidden="true">
+              <svg viewBox="0 0 200 110"><circle cx="70" cy="56" r="7" class="mini-grupo__yo"/><circle cx="118" cy="44" r="6"/><circle cx="136" cy="68" r="6"/><circle cx="104" cy="76" r="6"/><path d="M77 56h20" class="mini-grupo__linea"/></svg>
+            </div>
+            <p class="sello-pronto">Próximamente</p>
+            <h3>Nunca vayas sola</h3>
+            <p>Quedadas y planes abiertos para unirte a gente con tus mismos gustos. Como Sara, que no conocía a nadie.</p>
+          </li>
+        </ul>
+
+        <div class="movil-bloque">
+          <div class="movil" aria-label="Maqueta de la app en un móvil: vista 3D de Avilés con una notificación de ejemplo" role="img">
+            <div class="movil__pantalla">
+              <div class="movil__barra mono"><span>18:30</span><span>Mapa Vivo</span></div>
+              <img class="movil__mapa" id="movil-mapa" alt="" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=">
+              <div class="movil__noti">
+                <svg class="icono" aria-hidden="true"><use href="#i-campana"/></svg>
+                <span><strong>Concierto gratis en la Plaza de España a las 20:00</strong><span class="nivel nivel--animado nivel--mini"><span class="barras"><i></i><i></i><i></i></span>Animado</span></span>
+              </div>
+              <div class="movil__pestanas"><span class="activa">Mapa</span><span>Planes</span><span>Mi QR</span></div>
+            </div>
+          </div>
+          <div class="movil-bloque__texto">
+            <h3 class="titulo-medio">Sara abre el mapa a las 18:30.</h3>
+            <p>Ve que la Plaza de España está animada, que a las 20:00 hay concierto gratis y que el Parque de Ferrera está tranquilo para tomar algo antes. Ya no va a ciegas.</p>
+            <p class="nota-pequena">Notificación y datos de ejemplo. La app aún no existe: esto es una propuesta.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.8 Privacidad (adelantada: es lo primero que preocupa a quien usa la app) -->
+    <section class="seccion privacidad" id="privacidad" aria-labelledby="privacidad-titulo">
+      <div class="envoltura">
+        <p class="antetitulo">Privacidad</p>
+        <h2 class="titulo-seccion" id="privacidad-titulo">Contamos gente. <br>Nunca a nadie.</h2>
+        <ol class="promesas">
+          <li class="promesa"><span class="promesa__num mono">1</span><svg class="icono promesa__icono" aria-hidden="true"><use href="#i-movil"/></svg><p>Tu ubicación exacta <strong>no sale de tu móvil.</strong></p></li>
+          <li class="promesa"><span class="promesa__num mono">2</span><svg class="icono promesa__icono" aria-hidden="true"><use href="#i-hex"/></svg><p>Solo contamos personas por zonas, <strong>nunca quién es quién.</strong> <span class="promesa__det">Una zona no se publica con menos de 10 personas medidas.</span></p></li>
+          <li class="promesa"><span class="promesa__num mono">3</span><svg class="icono promesa__icono" aria-hidden="true"><use href="#i-camara-no"/></svg><p><strong>Sin cámaras.</strong></p></li>
+          <li class="promesa"><span class="promesa__num mono">4</span><svg class="icono promesa__icono" aria-hidden="true"><use href="#i-papelera"/></svg><p>Los recuentos <strong>se borran en 24 horas.</strong></p></li>
+          <li class="promesa"><span class="promesa__num mono">5</span><svg class="icono promesa__icono" aria-hidden="true"><use href="#i-interruptor"/></svg><p>Todo es opcional y <strong>se desactiva con un toque.</strong></p></li>
+        </ol>
+        <div class="privacidad__como">
+          <svg class="privacidad__diagrama" viewBox="0 0 640 140" role="img" aria-labelledby="priv-diag-t">
+            <title id="priv-diag-t">Tu móvil convierte tu posición en una celda hexagonal y solo envía un recuento por celda</title>
+            <g class="pd-movil"><rect x="20" y="24" width="64" height="100" rx="10"/><circle cx="52" cy="70" r="5" class="pd-punto"/></g>
+            <path d="M100 74h80" class="pd-flecha"/><path d="m172 66 8 8-8 8" class="pd-flecha"/>
+            <g class="pd-hex"><path d="M240 30l38 22v44l-38 22-38-22V52z"/><text x="240" y="80" text-anchor="middle">celda</text></g>
+            <path d="M296 74h80" class="pd-flecha"/><path d="m368 66 8 8-8 8" class="pd-flecha"/>
+            <g class="pd-recuento"><rect x="392" y="44" width="110" height="60" rx="8"/><text x="447" y="70" text-anchor="middle">+1 en la</text><text x="447" y="90" text-anchor="middle">celda 14</text></g>
+            <path d="M518 74h40" class="pd-flecha"/><path d="m550 66 8 8-8 8" class="pd-flecha"/>
+            <g class="pd-mapa"><text x="600" y="70" text-anchor="middle">mapa</text><text x="600" y="90" text-anchor="middle">≥ 10</text></g>
+          </svg>
+          <p class="privacidad__eipd">Desde el piloto, con evaluación de impacto en protección de datos (EIPD, art. 35.3.c del RGPD).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.6 Para el Ayuntamiento: cambio de ambiente a azul ría -->
+    <div class="ambiente-ria" id="ambiente-ria">
+      <div class="ambiente-ria__transicion" aria-hidden="true"></div>
+
+      <section class="seccion ayto" id="ayuntamiento" aria-labelledby="ayto-titulo">
+        <div class="envoltura">
+          <p class="antetitulo rotulo-ayto">Para el Ayuntamiento</p>
+          <h2 class="titulo-seccion" id="ayto-titulo">Ver venir la ciudad</h2>
+          <p class="entradilla">Hoy las aglomeraciones se descubren cuando ya están ocurriendo. La plataforma municipal propone verlas formarse con antelación y hacer llegar cada aviso al organismo que puede actuar. Un panel web con roles para Policía Local, técnicos municipales, Cultura y Juventud.</p>
+          <dl class="cifras">
+            <div class="cifra"><dt>Habitantes</dt><dd class="mono">75.351</dd></div>
+            <div class="cifra"><dt>Mayores de 65 años</dt><dd class="mono">27,79 %</dd></div>
+            <div class="cifra cifra--texto"><dt>El reto</dt><dd>Retener a la gente joven y cuidar a la mayor en cada aglomeración.</dd></div>
+          </dl>
+          <p class="nota-pequena">Fuente: INE, abril de 2025.</p>
+        </div>
+
+        <!-- Panel simulado -->
+        <div class="envoltura">
+          <div class="panel" id="panel" aria-labelledby="panel-titulo">
+            <div class="panel__cabecera">
+              <div>
+                <p class="panel__titulo" id="panel-titulo">Panel de concentraciones · Casco histórico y ría</p>
+                <p class="panel__sub mono">Datos de ejemplo de un sábado de Antroxu · Rol: Policía Local (demo)</p>
+              </div>
+              <div class="panel__reloj">
+                <button type="button" class="reloj__play reloj__play--panel" id="panel-play" aria-label="Reproducir la tarde" aria-pressed="false">
+                  <svg class="icono icono--play" aria-hidden="true"><use href="#i-play"/></svg>
+                  <svg class="icono icono--pausa" aria-hidden="true"><use href="#i-pausa"/></svg>
+                </button>
+                <label class="sr-only" for="panel-rango">Hora del panel</label>
+                <input class="reloj__rango" id="panel-rango" type="range" min="0" max="360" step="15" value="150" aria-valuetext="18:30">
+                <output class="panel__hora mono" id="panel-hora" for="panel-rango">18:30</output>
+              </div>
+            </div>
+
+            <div class="panel__kpis" id="panel-kpis" aria-live="polite"></div>
+
+            <div class="panel__rejilla">
+              <article class="tarjeta-panel tarjeta-panel--mapa" aria-labelledby="pm-t">
+                <h3 class="tarjeta-panel__t" id="pm-t">Gemelo en directo</h3>
+                <div class="panel__mapa" id="panel-mapa"></div>
+                <ul class="panel__leyenda mono" aria-label="Niveles técnicos">
+                  <li><i class="tn tn--baja"></i>Baja</li><li><i class="tn tn--media"></i>Media</li><li><i class="tn tn--alta"></i>Alta</li><li><i class="tn tn--vigilancia"></i>Vigilancia ≥ 2 p/m²</li><li><i class="tn tn--critico"></i>Crítico ≥ 3,5 p/m²</li>
+                </ul>
+              </article>
+              <article class="tarjeta-panel tarjeta-panel--prevision" aria-labelledby="pp-t">
+                <h3 class="tarjeta-panel__t" id="pp-t">Previsión · Calle Galiana</h3>
+                <div id="panel-prevision" class="panel__prevision"></div>
+              </article>
+              <article class="tarjeta-panel tarjeta-panel--alertas" aria-labelledby="pa-t">
+                <h3 class="tarjeta-panel__t" id="pa-t">Bandeja de alertas <span class="contador mono" id="panel-alertas-n">0</span></h3>
+                <ol class="alertas" id="panel-alertas" aria-live="polite"></ol>
+                <p class="alertas__vacio" id="panel-alertas-vacio">Sin alertas hasta esta hora. Avanza el reloj.</p>
+              </article>
+              <article class="tarjeta-panel tarjeta-panel--hotspots" aria-labelledby="ph-t">
+                <h3 class="tarjeta-panel__t" id="ph-t">Hot spots históricos · Calle Galiana</h3>
+                <div id="panel-hotspots" class="panel__hotspots"></div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seis ventajas -->
+        <div class="envoltura">
+          <h3 class="titulo-medio">Seis ventajas para la gestión de la ciudad</h3>
+          <ul class="ventajas">
+            <li class="ventaja"><svg class="icono" aria-hidden="true"><use href="#i-tendencia"/></svg><h4>Ver venir el pico</h4><p>Previsión de concentraciones por zona y hora a partir del histórico, la agenda y el tiempo. Preaviso antes de que la calle se llene.</p></li>
+            <li class="ventaja"><svg class="icono" aria-hidden="true"><use href="#i-hex"/></svg><h4>La ciudad en directo</h4><p>Un gemelo de concentraciones actualizado cada 15 minutos que distingue lo estimado de lo medido.</p></li>
+            <li class="ventaja"><svg class="icono" aria-hidden="true"><use href="#i-rayo"/></svg><h4>Cada aviso a quien actúa</h4><p>Urgencias al 112, la ría a la Autoridad Portuaria, desperfectos a Cuida Avilés, seguridad a la Policía Local.</p></li>
+            <li class="ventaja"><svg class="icono" aria-hidden="true"><use href="#i-capas"/></svg><h4>Decidir con datos</h4><p>Hot spots históricos para planificar cortes de calle, refuerzos, baños o servicios sanitarios en cada evento.</p></li>
+            <li class="ventaja"><svg class="icono" aria-hidden="true"><use href="#i-comercio"/></svg><h4>Ciudad viva, comercio vivo</h4><p>Más gente joven que se queda en Avilés y un programa de beneficios con el comercio local que ayuda a sostener la plataforma.</p></li>
+            <li class="ventaja"><svg class="icono" aria-hidden="true"><use href="#i-candado"/></svg><h4>Legal y abierto</h4><p>Privacidad desde el diseño y conforme al RGPD, datos agregados publicables en abierto y código con licencia EUPL.</p></li>
+          </ul>
+        </div>
+
+        <!-- Tres niveles de titularidad -->
+        <div class="envoltura">
+          <h3 class="titulo-medio">No todo es del Ayuntamiento. Por eso hay tres niveles.</h3>
+          <div class="niveles-tit">
+            <div class="nivel-tit nivel-tit--1">
+              <p class="nivel-tit__n mono">Nivel 1</p>
+              <h4>Gestiona</h4>
+              <p class="nivel-tit__que">Lo municipal. Datos completos y acción directa.</p>
+              <ul><li>Calles y plazas</li><li>Teatro Palacio Valdés</li><li>Casa de Cultura</li><li>Museo de la Historia Urbana</li><li>Parque de Ferrera</li></ul>
+            </div>
+            <div class="nivel-tit nivel-tit--2">
+              <p class="nivel-tit__n mono">Nivel 2</p>
+              <h4>Coordina</h4>
+              <p class="nivel-tit__que">Espacios de otros organismos con convenio. Datos compartidos.</p>
+              <ul><li>Centro Niemeyer (Principado)</li><li>La ría y el puerto (Autoridad Portuaria)</li><li>El 112 (Principado)</li></ul>
+            </div>
+            <div class="nivel-tit nivel-tit--3">
+              <p class="nivel-tit__n mono">Nivel 3</p>
+              <h4>Observa</h4>
+              <p class="nivel-tit__que">El resto. Solo afluencia anónima en la calle de alrededor.</p>
+              <ul><li>Hospital</li><li>Industria</li><li>Comercios privados</li></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interconexión entre organismos -->
+        <div class="envoltura">
+          <h3 class="titulo-medio">Cada aviso, al organismo que puede actuar</h3>
+          <div class="enrutado">
+            <svg class="enrutado__svg" viewBox="0 0 760 340" role="img" aria-labelledby="enr-t enr-d">
+              <title id="enr-t">Enrutamiento de incidencias</title>
+              <desc id="enr-d">El núcleo de Mapa Vivo envía las urgencias al 112, lo que ocurre en la ría a la Autoridad Portuaria, los desperfectos a Cuida Avilés, la seguridad y las aglomeraciones a la Policía Local y la información de cada recinto a su gestor.</desc>
+              <g class="enr-lineas">
+                <path d="M380 170 C 260 170, 220 50, 120 50"/>
+                <path d="M380 170 C 260 170, 220 290, 120 290"/>
+                <path d="M380 170 C 500 170, 540 50, 640 50"/>
+                <path d="M380 170 C 500 170, 540 290, 640 290"/>
+                <path d="M380 170 L 380 310"/>
+              </g>
+              <g class="enr-pulsos" aria-hidden="true">
+                <circle r="5"><animateMotion dur="2.6s" repeatCount="indefinite" path="M380 170 C 260 170, 220 50, 120 50"/></circle>
+                <circle r="5"><animateMotion dur="3.1s" repeatCount="indefinite" path="M380 170 C 260 170, 220 290, 120 290"/></circle>
+                <circle r="5"><animateMotion dur="2.8s" repeatCount="indefinite" path="M380 170 C 500 170, 540 50, 640 50"/></circle>
+                <circle r="5"><animateMotion dur="3.4s" repeatCount="indefinite" path="M380 170 C 500 170, 540 290, 640 290"/></circle>
+                <circle r="5"><animateMotion dur="2.2s" repeatCount="indefinite" path="M380 170 L 380 310"/></circle>
+              </g>
+              <g class="enr-nucleo"><path d="M380 112l58 33v66l-58 33-58-33v-66z"/><text x="380" y="166" text-anchor="middle">Mapa Vivo</text><text x="380" y="186" text-anchor="middle" class="enr-peque">núcleo de datos</text></g>
+              <g class="enr-nodo"><rect x="20" y="22" width="190" height="56" rx="10"/><text x="115" y="46" text-anchor="middle">112</text><text x="115" y="66" text-anchor="middle" class="enr-peque">Urgencias</text></g>
+              <g class="enr-nodo"><rect x="20" y="262" width="190" height="56" rx="10"/><text x="115" y="286" text-anchor="middle">Policía Local</text><text x="115" y="306" text-anchor="middle" class="enr-peque">Seguridad y aglomeraciones</text></g>
+              <g class="enr-nodo"><rect x="550" y="22" width="190" height="56" rx="10"/><text x="645" y="46" text-anchor="middle">Autoridad Portuaria</text><text x="645" y="66" text-anchor="middle" class="enr-peque">Todo lo que pasa en la ría</text></g>
+              <g class="enr-nodo"><rect x="550" y="262" width="190" height="56" rx="10"/><text x="645" y="286" text-anchor="middle">Cuida Avilés</text><text x="645" y="306" text-anchor="middle" class="enr-peque">Desperfectos en la calle</text></g>
+              <g class="enr-nodo enr-nodo--abajo"><rect x="285" y="290" width="190" height="46" rx="10"/><text x="380" y="318" text-anchor="middle">Gestor de cada espacio</text></g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Por qué es viable -->
+        <div class="envoltura">
+          <h3 class="titulo-medio">Por qué es viable</h3>
+          <ul class="viable">
+            <li><strong>El mapa nunca está vacío.</strong> Desde el primer día, cada zona muestra una estimación con la agenda oficial, los aforos y el histórico. Las señales medidas la corrigen después.</li>
+            <li><strong>Usa datos que ya existen.</strong> El portal de datos abiertos del Ayuntamiento (datos.aviles.es, con API pública), la agenda municipal, aforos, taquillas y previsión meteorológica.</li>
+            <li><strong>Cumple el RGPD desde el diseño.</strong> Sin datos personales en el servidor, sin cámaras y con evaluación de impacto antes del piloto.</li>
+            <li><strong>El piloto está acotado.</strong> Un evento (Antroxu 2027), una zona (casco histórico y ría) y un criterio de éxito medible: al menos un 80 % de acierto frente a aforadores.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 4.7 Cómo funciona -->
+      <section class="seccion como" id="como-funciona" aria-labelledby="como-titulo">
+        <div class="envoltura">
+          <p class="antetitulo rotulo-ayto">Cómo funciona</p>
+          <h2 class="titulo-seccion" id="como-titulo">De muchas fuentes, un solo mapa</h2>
+          <ol class="flujo" id="flujo">
+            <li class="flujo__paso">
+              <h3>Fuentes</h3>
+              <ul class="flujo__chips"><li>Agenda municipal</li><li>Aforos</li><li>Taquilla</li><li>Previsión del tiempo</li><li>Usuarios anónimos</li></ul>
+            </li>
+            <li class="flujo__paso flujo__paso--privacidad">
+              <h3>Capa de privacidad</h3>
+              <p>Celdas hexagonales, mínimo de 10 personas, borrado a las 24 h.</p>
+            </li>
+            <li class="flujo__paso flujo__paso--fusion">
+              <h3>Fusión cada 15 minutos</h3>
+              <p>Cada señal pesa según lo fiable que es.</p>
+            </li>
+            <li class="flujo__paso">
+              <h3>Salidas</h3>
+              <ul class="flujo__chips"><li>App ciudadana</li><li>Panel municipal</li><li>Datos abiertos</li></ul>
+            </li>
+          </ol>
+
+          <div class="como__rejilla">
+            <div class="estimado-medido">
+              <h3 class="titulo-medio">De estimado a medido</h3>
+              <p>Así evoluciona la misma zona, Calle Galiana, cuando empiezan a llegar señales medidas:</p>
+              <div class="em-pasos">
+                <figure class="em-paso">
+                  <svg viewBox="0 0 120 120" aria-hidden="true"><path class="em-hex em-hex--estimado" d="M60 8l45 26v52l-45 26-45-26V34z"/></svg>
+                  <figcaption><span class="mono">17:30</span><strong>Estimado</strong>Agenda + histórico: «Animado».</figcaption>
+                </figure>
+                <svg class="em-flecha" viewBox="0 0 40 20" aria-hidden="true"><path d="M2 10h32M28 4l6 6-6 6"/></svg>
+                <figure class="em-paso">
+                  <svg viewBox="0 0 120 120" aria-hidden="true"><path class="em-hex em-hex--medido" d="M60 8l45 26v52l-45 26-45-26V34z"/></svg>
+                  <figcaption><span class="mono">18:00</span><strong>Medido</strong>La Policía Local confirma: «Lleno».</figcaption>
+                </figure>
+              </div>
+            </div>
+            <div class="pesos">
+              <h3 class="titulo-medio">Peso de cada señal</h3>
+              <ul class="pesos__lista" id="pesos-lista">
+                <li><span class="pesos__n">Observación de la Policía Local</span><span class="pesos__barra" style="--v:.9"></span><span class="pesos__v mono">0,9</span></li>
+                <li><span class="pesos__n">Taquilla</span><span class="pesos__barra" style="--v:.8"></span><span class="pesos__v mono">0,8</span></li>
+                <li><span class="pesos__n">Recuento wifi (fase 2)</span><span class="pesos__barra pesos__barra--futuro" style="--v:.6"></span><span class="pesos__v mono">0,6</span></li>
+                <li><span class="pesos__n">Usuarios de la app</span><span class="pesos__barra" style="--v:.5"></span><span class="pesos__v mono">0,5</span></li>
+                <li><span class="pesos__n">Modelo sobre histórico</span><span class="pesos__barra" style="--v:.3"></span><span class="pesos__v mono">0,3</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 4.9 Por qué no es Google Maps -->
+    <section class="seccion comparativa" id="comparativa" aria-labelledby="comp-titulo">
+      <div class="envoltura">
+        <p class="antetitulo">La diferencia</p>
+        <h2 class="titulo-seccion" id="comp-titulo">«Esto ya es Google Maps.» <br><span class="tenue">No.</span></h2>
+        <div class="tabla-envoltura">
+          <table class="tabla-comp">
+            <caption class="sr-only">Comparativa entre Mapa Vivo y Google Maps</caption>
+            <thead><tr><th scope="col">Qué necesitas saber</th><th scope="col" class="col-mv">Mapa Vivo</th><th scope="col">Google Maps</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Gente en calles y plazas durante un evento</th><td class="col-mv"><span class="si"><svg class="icono" aria-hidden="true"><use href="#i-si"/></svg>Sí</span></td><td><span class="no"><svg class="icono" aria-hidden="true"><use href="#i-no"/></svg>No</span></td></tr>
+              <tr><th scope="row">Agenda oficial de Avilés</th><td class="col-mv"><span class="si"><svg class="icono" aria-hidden="true"><use href="#i-si"/></svg>Sí</span></td><td><span class="no"><svg class="icono" aria-hidden="true"><use href="#i-no"/></svg>No</span></td></tr>
+              <tr><th scope="row">Quién gestiona cada espacio</th><td class="col-mv"><span class="si"><svg class="icono" aria-hidden="true"><use href="#i-si"/></svg>Sí</span></td><td><span class="no"><svg class="icono" aria-hidden="true"><use href="#i-no"/></svg>No</span></td></tr>
+              <tr><th scope="row">Previsión de aglomeraciones</th><td class="col-mv"><span class="si"><svg class="icono" aria-hidden="true"><use href="#i-si"/></svg>Sí</span></td><td><span class="no"><svg class="icono" aria-hidden="true"><use href="#i-no"/></svg>No</span></td></tr>
+              <tr><th scope="row">Avisos a la Policía Local</th><td class="col-mv"><span class="si"><svg class="icono" aria-hidden="true"><use href="#i-si"/></svg>Sí</span></td><td><span class="no"><svg class="icono" aria-hidden="true"><use href="#i-no"/></svg>No</span></td></tr>
+              <tr><th scope="row">QR con la historia de los monumentos</th><td class="col-mv"><span class="si"><svg class="icono" aria-hidden="true"><use href="#i-si"/></svg>Sí</span></td><td><span class="no"><svg class="icono" aria-hidden="true"><use href="#i-no"/></svg>No</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="nota-pequena">Comparativa sobre funciones públicas generales, sin datos de afluencia en calles durante eventos ni integración con servicios municipales de Avilés.</p>
+      </div>
+    </section>
+
+    <!-- 4.10 Hoja de ruta -->
+    <section class="seccion ruta" id="hoja-de-ruta" aria-labelledby="ruta-titulo">
+      <div class="envoltura">
+        <p class="antetitulo">Hoja de ruta · Propuesta de piloto</p>
+        <h2 class="titulo-seccion" id="ruta-titulo">Un evento, una zona, una métrica</h2>
+        <ol class="linea-tiempo">
+          <li class="etapa etapa--hoy">
+            <p class="etapa__cuando mono">Hoy</p>
+            <h3>Demo</h3>
+            <ul><li>Prototipo navegable en 2D, 3D y primera persona</li><li>Datos de ejemplo de un sábado de Antroxu</li><li>Panel municipal simulado</li></ul>
+            <p class="etapa__condicion"><strong>Para avanzar:</strong> interés del Ayuntamiento en un piloto.</p>
+          </li>
+          <li class="etapa">
+            <p class="etapa__cuando mono">Antroxu 2027 · previsiblemente febrero</p>
+            <h3>Piloto</h3>
+            <ul><li>Casco histórico y ría</li><li>Agenda oficial y aforos reales</li><li>Observación de la Policía Local y taquillas</li><li>Evaluación de impacto (EIPD)</li></ul>
+            <p class="etapa__condicion"><strong>Para avanzar:</strong> al menos un 80 % de acierto frente a aforadores.</p>
+          </li>
+          <li class="etapa">
+            <p class="etapa__cuando mono">2027</p>
+            <h3>Ampliación</h3>
+            <ul><li>Comercio local y QR de beneficios</li><li>Comunidad: quedadas y planes</li><li>Recuento anónimo por wifi</li><li>Consorcio de Transportes (CTA Conecta)</li></ul>
+            <p class="etapa__condicion"><strong>Para avanzar:</strong> uso sostenido y comercios adheridos.</p>
+          </li>
+          <li class="etapa etapa--vision">
+            <p class="etapa__cuando mono">Visión de futuro</p>
+            <h3>Más allá</h3>
+            <ul><li>Realidad virtual</li><li>Turismo y transporte integrados</li><li>Red de ciudades inteligentes</li></ul>
+            <p class="etapa__condicion"><strong>Ojo:</strong> nada de esto existe aún. Es hacia dónde podría crecer.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 4.11 El equipo -->
+    <section class="seccion equipo" id="equipo" aria-labelledby="equipo-titulo">
+      <div class="envoltura">
+        <p class="antetitulo">El equipo</p>
+        <h2 class="titulo-seccion" id="equipo-titulo">Seis personas, 90 ideas, 5 elegidas</h2>
+        <p class="entradilla">90 ideas en un brainwriting 6-3-5 y 5 elegidas: el gemelo de concentraciones, los hot spots históricos, la previsión con IA, la vista en primera persona y el QR con beneficios.</p>
+        <ul class="miembros">
+          <li class="miembro"><span class="hexa" aria-hidden="true">O</span><span class="miembro__nombre">Omar</span><span class="miembro__rol">Coordinación y datos</span></li>
+          <li class="miembro"><span class="hexa" aria-hidden="true">K</span><span class="miembro__nombre">Kike</span><span class="miembro__rol">Panel y previsión</span></li>
+          <li class="miembro"><span class="hexa" aria-hidden="true">R</span><span class="miembro__nombre">Román</span><span class="miembro__rol">Mapa y emergencias</span></li>
+          <li class="miembro"><span class="hexa" aria-hidden="true">Á</span><span class="miembro__nombre">Ángel</span><span class="miembro__rol">Avisos y comercio</span></li>
+          <li class="miembro"><span class="hexa" aria-hidden="true">A</span><span class="miembro__nombre">Albert</span><span class="miembro__rol">Experiencia de uso</span></li>
+          <li class="miembro"><span class="hexa" aria-hidden="true">C</span><span class="miembro__nombre">Camila</span><span class="miembro__rol">Integraciones y comunidad</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4.12 Llamada final -->
+    <section class="seccion final" id="final" aria-labelledby="final-titulo">
+      <div class="envoltura final__dentro">
+        <div>
+          <h2 class="final__titulo" id="final-titulo">Avilés tiene planes. <br>Vamos a enseñarlos.</h2>
+          <p class="final__sub">Pedimos un evento y tres meses para demostrarlo.</p>
+          <div class="hero__botones">
+            <a class="boton boton--vivo" href="#mapa">Explora el mapa</a>
+            <a class="boton boton--contorno" href="#hoja-de-ruta">Propuesta de piloto</a>
+          </div>
+        </div>
+        <form class="interes" id="form-interes" novalidate>
+          <h3 class="interes__titulo">Quiero probarla en el Antroxu</h3>
+          <p class="interes__aviso"><svg class="icono" aria-hidden="true"><use href="#i-candado"/></svg>Formulario de demostración: <strong>no se envía ni se guarda nada.</strong></p>
+          <label class="campo">
+            <span>Tu correo</span>
+            <input type="email" name="correo" autocomplete="email" placeholder="tu@correo.es" required aria-describedby="interes-error">
+          </label>
+          <fieldset class="intereses">
+            <legend>Me interesa</legend>
+            <label><input type="checkbox" name="i" value="cultura"> Cultura</label>
+            <label><input type="checkbox" name="i" value="ocio"> Ocio</label>
+            <label><input type="checkbox" name="i" value="comercio"> Comercio</label>
+            <label><input type="checkbox" name="i" value="deporte"> Deporte</label>
+          </fieldset>
+          <p class="interes__error" id="interes-error" aria-live="polite"></p>
+          <button class="boton boton--vivo" type="submit">Quiero probarla</button>
+          <p class="interes__gracias" id="interes-gracias" role="status" hidden>Gracias. Esto es una demo: no hemos guardado tu correo.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="envoltura pie__dentro">
+      <p class="pie__aviso"><strong>Proyecto del equipo Mapa Vivo para Hackea Avilés 2026. No es un servicio oficial del Ayuntamiento de Avilés.</strong></p>
+      <p>Prototipo de hackathon: la app no existe todavía y todos los datos de afluencia, eventos, aforos y comercios son de ejemplo. La maqueta es una representación ilustrativa, no a escala.</p>
+      <p>Fuente del dato de población (75.351 habitantes; 27,79 % mayor de 65 años): INE, abril de 2025.</p>
+      <p>Hecho con Three.js (MIT). Tipografías Archivo, Atkinson Hyperlegible y JetBrains Mono (SIL Open Font License). Sin cookies, sin analítica y sin servicios de terceros.</p>
+      <p class="pie__marca mono">Hackea Avilés 2026 · Reto de datos</p>
+    </div>
+  </footer>
+</body>
+</html>
