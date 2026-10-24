@@ -1,0 +1,2099 @@
+{
+  "ejemplo": true,
+  "aviso": "Datos de ejemplo de un sábado de Antroxu. No son mediciones reales.",
+  "unidad": "personas/m²",
+  "inicio": "16:00",
+  "fin": "22:00",
+  "paso_min": 15,
+  "horas": [
+    "16:00",
+    "16:15",
+    "16:30",
+    "16:45",
+    "17:00",
+    "17:15",
+    "17:30",
+    "17:45",
+    "18:00",
+    "18:15",
+    "18:30",
+    "18:45",
+    "19:00",
+    "19:15",
+    "19:30",
+    "19:45",
+    "20:00",
+    "20:15",
+    "20:30",
+    "20:45",
+    "21:00",
+    "21:15",
+    "21:30",
+    "21:45",
+    "22:00"
+  ],
+  "umbrales": {
+    "baja": "< 0,5",
+    "media": "0,5 – 1,2",
+    "alta": "1,2 – 2",
+    "vigilancia": "≥ 2",
+    "critico": "≥ 3,5"
+  },
+  "equivalencia_publica": {
+    "baja": "Tranquilo",
+    "media": "Animado",
+    "alta": "Animado",
+    "vigilancia": "Lleno",
+    "critico": "Lleno"
+  },
+  "zonas": {
+    "galiana": {
+      "nombre": "Calle Galiana",
+      "superficie_m2": 4600,
+      "fuente_medida": "Observación de la Policía Local",
+      "serie": [
+        {
+          "hora": "16:00",
+          "densidad": 0.9,
+          "personas": 4140,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:15",
+          "densidad": 1.05,
+          "personas": 4830,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:30",
+          "densidad": 1.2,
+          "personas": 5520,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:45",
+          "densidad": 1.35,
+          "personas": 6210,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:00",
+          "densidad": 1.5,
+          "personas": 6900,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:15",
+          "densidad": 1.63,
+          "personas": 7500,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:30",
+          "densidad": 1.75,
+          "personas": 8050,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:45",
+          "densidad": 1.93,
+          "personas": 8880,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:00",
+          "densidad": 2.1,
+          "personas": 9660,
+          "nivel": "vigilancia",
+          "publico": "lleno",
+          "fuente": "medido"
+        },
+        {
+          "hora": "18:15",
+          "densidad": 2.5,
+          "personas": 11500,
+          "nivel": "vigilancia",
+          "publico": "lleno",
+          "fuente": "medido"
+        },
+        {
+          "hora": "18:30",
+          "densidad": 2.9,
+          "personas": 13340,
+          "nivel": "vigilancia",
+          "publico": "lleno",
+          "fuente": "medido"
+        },
+        {
+          "hora": "18:45",
+          "densidad": 2.55,
+          "personas": 11730,
+          "nivel": "vigilancia",
+          "publico": "lleno",
+          "fuente": "medido"
+        },
+        {
+          "hora": "19:00",
+          "densidad": 2.2,
+          "personas": 10120,
+          "nivel": "vigilancia",
+          "publico": "lleno",
+          "fuente": "medido"
+        },
+        {
+          "hora": "19:15",
+          "densidad": 1.95,
+          "personas": 8970,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "19:30",
+          "densidad": 1.7,
+          "personas": 7820,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "19:45",
+          "densidad": 1.5,
+          "personas": 6900,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "20:00",
+          "densidad": 1.3,
+          "personas": 5980,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "20:15",
+          "densidad": 1.1,
+          "personas": 5060,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "20:30",
+          "densidad": 0.9,
+          "personas": 4140,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "20:45",
+          "densidad": 0.8,
+          "personas": 3680,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "21:00",
+          "densidad": 0.7,
+          "personas": 3220,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "21:15",
+          "densidad": 0.6,
+          "personas": 2760,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "21:30",
+          "densidad": 0.5,
+          "personas": 2300,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "21:45",
+          "densidad": 0.4,
+          "personas": 1840,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "22:00",
+          "densidad": 0.3,
+          "personas": 1380,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        }
+      ]
+    },
+    "plaza-espana": {
+      "nombre": "Plaza de España",
+      "superficie_m2": 5100,
+      "fuente_medida": null,
+      "serie": [
+        {
+          "hora": "16:00",
+          "densidad": 0.8,
+          "personas": 4080,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:15",
+          "densidad": 0.85,
+          "personas": 4340,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:30",
+          "densidad": 0.9,
+          "personas": 4590,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:45",
+          "densidad": 0.95,
+          "personas": 4850,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:00",
+          "densidad": 1,
+          "personas": 5100,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:15",
+          "densidad": 1.13,
+          "personas": 5760,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:30",
+          "densidad": 1.25,
+          "personas": 6380,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:45",
+          "densidad": 1.38,
+          "personas": 7040,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:00",
+          "densidad": 1.5,
+          "personas": 7650,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:15",
+          "densidad": 1.6,
+          "personas": 8160,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:30",
+          "densidad": 1.7,
+          "personas": 8670,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:45",
+          "densidad": 1.68,
+          "personas": 8570,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:00",
+          "densidad": 1.65,
+          "personas": 8420,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:15",
+          "densidad": 1.63,
+          "personas": 8310,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:30",
+          "densidad": 1.6,
+          "personas": 8160,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:45",
+          "densidad": 1.7,
+          "personas": 8670,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:00",
+          "densidad": 1.8,
+          "personas": 9180,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:15",
+          "densidad": 1.85,
+          "personas": 9440,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:30",
+          "densidad": 1.9,
+          "personas": 9690,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:45",
+          "densidad": 1.8,
+          "personas": 9180,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:00",
+          "densidad": 1.7,
+          "personas": 8670,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:15",
+          "densidad": 1.6,
+          "personas": 8160,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:30",
+          "densidad": 1.5,
+          "personas": 7650,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:45",
+          "densidad": 1.15,
+          "personas": 5870,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "22:00",
+          "densidad": 0.8,
+          "personas": 4080,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        }
+      ]
+    },
+    "niemeyer": {
+      "nombre": "Centro Niemeyer",
+      "superficie_m2": 9000,
+      "fuente_medida": "Taquilla del Centro Niemeyer",
+      "serie": [
+        {
+          "hora": "16:00",
+          "densidad": 0.15,
+          "personas": 1350,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "16:15",
+          "densidad": 0.15,
+          "personas": 1350,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "16:30",
+          "densidad": 0.15,
+          "personas": 1350,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "16:45",
+          "densidad": 0.15,
+          "personas": 1350,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "17:00",
+          "densidad": 0.15,
+          "personas": 1350,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "17:15",
+          "densidad": 0.16,
+          "personas": 1440,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "17:30",
+          "densidad": 0.18,
+          "personas": 1620,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "17:45",
+          "densidad": 0.19,
+          "personas": 1710,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "18:00",
+          "densidad": 0.2,
+          "personas": 1800,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "18:15",
+          "densidad": 0.23,
+          "personas": 2070,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "18:30",
+          "densidad": 0.25,
+          "personas": 2250,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "18:45",
+          "densidad": 0.36,
+          "personas": 3240,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "19:00",
+          "densidad": 0.48,
+          "personas": 4320,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "19:15",
+          "densidad": 0.59,
+          "personas": 5310,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "19:30",
+          "densidad": 0.7,
+          "personas": 6300,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "19:45",
+          "densidad": 0.73,
+          "personas": 6570,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "20:00",
+          "densidad": 0.75,
+          "personas": 6750,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "20:15",
+          "densidad": 0.68,
+          "personas": 6120,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "20:30",
+          "densidad": 0.6,
+          "personas": 5400,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "20:45",
+          "densidad": 0.63,
+          "personas": 5670,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "21:00",
+          "densidad": 0.65,
+          "personas": 5850,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "21:15",
+          "densidad": 0.68,
+          "personas": 6120,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "21:30",
+          "densidad": 0.7,
+          "personas": 6300,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "21:45",
+          "densidad": 0.5,
+          "personas": 4500,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "22:00",
+          "densidad": 0.3,
+          "personas": 2700,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        }
+      ]
+    },
+    "muelle": {
+      "nombre": "Parque del Muelle",
+      "superficie_m2": 14000,
+      "fuente_medida": null,
+      "serie": [
+        {
+          "hora": "16:00",
+          "densidad": 0.6,
+          "personas": 8400,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:15",
+          "densidad": 0.63,
+          "personas": 8820,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:30",
+          "densidad": 0.65,
+          "personas": 9100,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:45",
+          "densidad": 0.68,
+          "personas": 9520,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:00",
+          "densidad": 0.7,
+          "personas": 9800,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:15",
+          "densidad": 0.68,
+          "personas": 9520,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:30",
+          "densidad": 0.65,
+          "personas": 9100,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:45",
+          "densidad": 0.63,
+          "personas": 8820,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:00",
+          "densidad": 0.6,
+          "personas": 8400,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:15",
+          "densidad": 0.5,
+          "personas": 7000,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:30",
+          "densidad": 0.4,
+          "personas": 5600,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:45",
+          "densidad": 0.38,
+          "personas": 5320,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:00",
+          "densidad": 0.35,
+          "personas": 4900,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:15",
+          "densidad": 0.33,
+          "personas": 4620,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:30",
+          "densidad": 0.3,
+          "personas": 4200,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:45",
+          "densidad": 0.28,
+          "personas": 3920,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:00",
+          "densidad": 0.25,
+          "personas": 3500,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:15",
+          "densidad": 0.23,
+          "personas": 3220,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:30",
+          "densidad": 0.2,
+          "personas": 2800,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:45",
+          "densidad": 0.19,
+          "personas": 2660,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:00",
+          "densidad": 0.18,
+          "personas": 2520,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:15",
+          "densidad": 0.18,
+          "personas": 2520,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:30",
+          "densidad": 0.17,
+          "personas": 2380,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:45",
+          "densidad": 0.16,
+          "personas": 2240,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "22:00",
+          "densidad": 0.15,
+          "personas": 2100,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        }
+      ]
+    },
+    "ferrera": {
+      "nombre": "Parque de Ferrera",
+      "superficie_m2": 52000,
+      "fuente_medida": null,
+      "serie": [
+        {
+          "hora": "16:00",
+          "densidad": 0.6,
+          "personas": 31200,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:15",
+          "densidad": 0.63,
+          "personas": 32760,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:30",
+          "densidad": 0.65,
+          "personas": 33800,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:45",
+          "densidad": 0.68,
+          "personas": 35360,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:00",
+          "densidad": 0.7,
+          "personas": 36400,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:15",
+          "densidad": 0.63,
+          "personas": 32760,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:30",
+          "densidad": 0.55,
+          "personas": 28600,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:45",
+          "densidad": 0.48,
+          "personas": 24960,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:00",
+          "densidad": 0.4,
+          "personas": 20800,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:15",
+          "densidad": 0.35,
+          "personas": 18200,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:30",
+          "densidad": 0.3,
+          "personas": 15600,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:45",
+          "densidad": 0.28,
+          "personas": 14560,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:00",
+          "densidad": 0.25,
+          "personas": 13000,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:15",
+          "densidad": 0.23,
+          "personas": 11960,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:30",
+          "densidad": 0.2,
+          "personas": 10400,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:45",
+          "densidad": 0.19,
+          "personas": 9880,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:00",
+          "densidad": 0.18,
+          "personas": 9360,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:15",
+          "densidad": 0.16,
+          "personas": 8320,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:30",
+          "densidad": 0.15,
+          "personas": 7800,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:45",
+          "densidad": 0.14,
+          "personas": 7280,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:00",
+          "densidad": 0.13,
+          "personas": 6760,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:15",
+          "densidad": 0.13,
+          "personas": 6760,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:30",
+          "densidad": 0.12,
+          "personas": 6240,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:45",
+          "densidad": 0.11,
+          "personas": 5720,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "22:00",
+          "densidad": 0.1,
+          "personas": 5200,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        }
+      ]
+    },
+    "orbon": {
+      "nombre": "Plaza Hermanos Orbón",
+      "superficie_m2": 4200,
+      "fuente_medida": null,
+      "serie": [
+        {
+          "hora": "16:00",
+          "densidad": 0.3,
+          "personas": 1260,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:15",
+          "densidad": 0.4,
+          "personas": 1680,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:30",
+          "densidad": 0.5,
+          "personas": 2100,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:45",
+          "densidad": 0.6,
+          "personas": 2520,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:00",
+          "densidad": 0.7,
+          "personas": 2940,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:15",
+          "densidad": 0.73,
+          "personas": 3070,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:30",
+          "densidad": 0.75,
+          "personas": 3150,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:45",
+          "densidad": 0.78,
+          "personas": 3280,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:00",
+          "densidad": 0.8,
+          "personas": 3360,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:15",
+          "densidad": 0.85,
+          "personas": 3570,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:30",
+          "densidad": 0.9,
+          "personas": 3780,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:45",
+          "densidad": 1.02,
+          "personas": 4280,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:00",
+          "densidad": 1.15,
+          "personas": 4830,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:15",
+          "densidad": 1.27,
+          "personas": 5330,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:30",
+          "densidad": 1.4,
+          "personas": 5880,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:45",
+          "densidad": 1.45,
+          "personas": 6090,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:00",
+          "densidad": 1.5,
+          "personas": 6300,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:15",
+          "densidad": 1.55,
+          "personas": 6510,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:30",
+          "densidad": 1.6,
+          "personas": 6720,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:45",
+          "densidad": 1.75,
+          "personas": 7350,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:00",
+          "densidad": 1.9,
+          "personas": 7980,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:15",
+          "densidad": 1.8,
+          "personas": 7560,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:30",
+          "densidad": 1.7,
+          "personas": 7140,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:45",
+          "densidad": 1.35,
+          "personas": 5670,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "22:00",
+          "densidad": 1,
+          "personas": 4200,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        }
+      ]
+    },
+    "teatro": {
+      "nombre": "Entorno del Teatro Palacio Valdés",
+      "superficie_m2": 1200,
+      "fuente_medida": "Taquilla del Teatro Palacio Valdés",
+      "serie": [
+        {
+          "hora": "16:00",
+          "densidad": 0.3,
+          "personas": 360,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "16:15",
+          "densidad": 0.57,
+          "personas": 680,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "16:30",
+          "densidad": 0.83,
+          "personas": 1000,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "16:45",
+          "densidad": 1.1,
+          "personas": 1320,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "17:00",
+          "densidad": 0.8,
+          "personas": 960,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "17:15",
+          "densidad": 0.5,
+          "personas": 600,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "17:30",
+          "densidad": 0.5,
+          "personas": 600,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "17:45",
+          "densidad": 0.5,
+          "personas": 600,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "18:00",
+          "densidad": 0.5,
+          "personas": 600,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "18:15",
+          "densidad": 0.5,
+          "personas": 600,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "18:30",
+          "densidad": 0.5,
+          "personas": 600,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "18:45",
+          "densidad": 0.5,
+          "personas": 600,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "19:00",
+          "densidad": 1.2,
+          "personas": 1440,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "19:15",
+          "densidad": 0.8,
+          "personas": 960,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "medido"
+        },
+        {
+          "hora": "19:30",
+          "densidad": 0.4,
+          "personas": 480,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "19:45",
+          "densidad": 0.38,
+          "personas": 460,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "20:00",
+          "densidad": 0.36,
+          "personas": 430,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "20:15",
+          "densidad": 0.34,
+          "personas": 410,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "20:30",
+          "densidad": 0.32,
+          "personas": 380,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "20:45",
+          "densidad": 0.3,
+          "personas": 360,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "21:00",
+          "densidad": 0.28,
+          "personas": 340,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "21:15",
+          "densidad": 0.26,
+          "personas": 310,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "21:30",
+          "densidad": 0.24,
+          "personas": 290,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "21:45",
+          "densidad": 0.22,
+          "personas": 260,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        },
+        {
+          "hora": "22:00",
+          "densidad": 0.2,
+          "personas": 240,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "medido"
+        }
+      ]
+    },
+    "rivero": {
+      "nombre": "Calle Rivero",
+      "superficie_m2": 3800,
+      "fuente_medida": null,
+      "serie": [
+        {
+          "hora": "16:00",
+          "densidad": 0.4,
+          "personas": 1520,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:15",
+          "densidad": 0.45,
+          "personas": 1710,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:30",
+          "densidad": 0.5,
+          "personas": 1900,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:45",
+          "densidad": 0.55,
+          "personas": 2090,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:00",
+          "densidad": 0.6,
+          "personas": 2280,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:15",
+          "densidad": 0.7,
+          "personas": 2660,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:30",
+          "densidad": 0.8,
+          "personas": 3040,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:45",
+          "densidad": 0.9,
+          "personas": 3420,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:00",
+          "densidad": 1,
+          "personas": 3800,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:15",
+          "densidad": 1.1,
+          "personas": 4180,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:30",
+          "densidad": 1.2,
+          "personas": 4560,
+          "nivel": "alta",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:45",
+          "densidad": 1.13,
+          "personas": 4290,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:00",
+          "densidad": 1.05,
+          "personas": 3990,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:15",
+          "densidad": 0.98,
+          "personas": 3720,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:30",
+          "densidad": 0.9,
+          "personas": 3420,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:45",
+          "densidad": 0.85,
+          "personas": 3230,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:00",
+          "densidad": 0.8,
+          "personas": 3040,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:15",
+          "densidad": 0.75,
+          "personas": 2850,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:30",
+          "densidad": 0.7,
+          "personas": 2660,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:45",
+          "densidad": 0.65,
+          "personas": 2470,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:00",
+          "densidad": 0.6,
+          "personas": 2280,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:15",
+          "densidad": 0.55,
+          "personas": 2090,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:30",
+          "densidad": 0.5,
+          "personas": 1900,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:45",
+          "densidad": 0.45,
+          "personas": 1710,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "22:00",
+          "densidad": 0.4,
+          "personas": 1520,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        }
+      ]
+    },
+    "paseo-ria": {
+      "nombre": "Paseo de la ría",
+      "superficie_m2": 7000,
+      "fuente_medida": null,
+      "serie": [
+        {
+          "hora": "16:00",
+          "densidad": 0.4,
+          "personas": 2800,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:15",
+          "densidad": 0.43,
+          "personas": 3010,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:30",
+          "densidad": 0.45,
+          "personas": 3150,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "16:45",
+          "densidad": 0.48,
+          "personas": 3360,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:00",
+          "densidad": 0.5,
+          "personas": 3500,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:15",
+          "densidad": 0.48,
+          "personas": 3360,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:30",
+          "densidad": 0.45,
+          "personas": 3150,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "17:45",
+          "densidad": 0.43,
+          "personas": 3010,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:00",
+          "densidad": 0.4,
+          "personas": 2800,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:15",
+          "densidad": 0.35,
+          "personas": 2450,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:30",
+          "densidad": 0.3,
+          "personas": 2100,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "18:45",
+          "densidad": 0.36,
+          "personas": 2520,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:00",
+          "densidad": 0.43,
+          "personas": 3010,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:15",
+          "densidad": 0.49,
+          "personas": 3430,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:30",
+          "densidad": 0.55,
+          "personas": 3850,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "19:45",
+          "densidad": 0.53,
+          "personas": 3710,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:00",
+          "densidad": 0.5,
+          "personas": 3500,
+          "nivel": "media",
+          "publico": "animado",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:15",
+          "densidad": 0.4,
+          "personas": 2800,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:30",
+          "densidad": 0.3,
+          "personas": 2100,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "20:45",
+          "densidad": 0.28,
+          "personas": 1960,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:00",
+          "densidad": 0.27,
+          "personas": 1890,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:15",
+          "densidad": 0.25,
+          "personas": 1750,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:30",
+          "densidad": 0.23,
+          "personas": 1610,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "21:45",
+          "densidad": 0.22,
+          "personas": 1540,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        },
+        {
+          "hora": "22:00",
+          "densidad": 0.2,
+          "personas": 1400,
+          "nivel": "baja",
+          "publico": "tranquilo",
+          "fuente": "estimado"
+        }
+      ]
+    }
+  },
+  "prevision": {
+    "galiana": {
+      "modelo": "Histórico de Antroxu + agenda + previsión meteorológica (ejemplo)",
+      "calculada": "10:00",
+      "pico": {
+        "hora": "18:30",
+        "densidad": 2.72,
+        "nivel": "vigilancia"
+      },
+      "serie": [
+        {
+          "hora": "16:00",
+          "prevista": 0.96,
+          "banda_baja": 0.79,
+          "banda_alta": 1.1
+        },
+        {
+          "hora": "16:15",
+          "prevista": 1.11,
+          "banda_baja": 0.91,
+          "banda_alta": 1.28
+        },
+        {
+          "hora": "16:30",
+          "prevista": 1.25,
+          "banda_baja": 1.02,
+          "banda_alta": 1.44
+        },
+        {
+          "hora": "16:45",
+          "prevista": 1.39,
+          "banda_baja": 1.14,
+          "banda_alta": 1.6
+        },
+        {
+          "hora": "17:00",
+          "prevista": 1.53,
+          "banda_baja": 1.25,
+          "banda_alta": 1.76
+        },
+        {
+          "hora": "17:15",
+          "prevista": 1.65,
+          "banda_baja": 1.35,
+          "banda_alta": 1.9
+        },
+        {
+          "hora": "17:30",
+          "prevista": 1.79,
+          "banda_baja": 1.47,
+          "banda_alta": 2.06
+        },
+        {
+          "hora": "17:45",
+          "prevista": 1.95,
+          "banda_baja": 1.6,
+          "banda_alta": 2.24
+        },
+        {
+          "hora": "18:00",
+          "prevista": 2.19,
+          "banda_baja": 1.8,
+          "banda_alta": 2.52
+        },
+        {
+          "hora": "18:15",
+          "prevista": 2.58,
+          "banda_baja": 2.12,
+          "banda_alta": 2.97
+        },
+        {
+          "hora": "18:30",
+          "prevista": 2.72,
+          "banda_baja": 2.23,
+          "banda_alta": 3.13
+        },
+        {
+          "hora": "18:45",
+          "prevista": 2.39,
+          "banda_baja": 1.96,
+          "banda_alta": 2.75
+        },
+        {
+          "hora": "19:00",
+          "prevista": 2.08,
+          "banda_baja": 1.71,
+          "banda_alta": 2.39
+        },
+        {
+          "hora": "19:15",
+          "prevista": 1.84,
+          "banda_baja": 1.51,
+          "banda_alta": 2.12
+        },
+        {
+          "hora": "19:30",
+          "prevista": 1.62,
+          "banda_baja": 1.33,
+          "banda_alta": 1.86
+        },
+        {
+          "hora": "19:45",
+          "prevista": 1.43,
+          "banda_baja": 1.17,
+          "banda_alta": 1.64
+        },
+        {
+          "hora": "20:00",
+          "prevista": 1.23,
+          "banda_baja": 1.01,
+          "banda_alta": 1.41
+        },
+        {
+          "hora": "20:15",
+          "prevista": 1.04,
+          "banda_baja": 0.85,
+          "banda_alta": 1.2
+        },
+        {
+          "hora": "20:30",
+          "prevista": 0.88,
+          "banda_baja": 0.72,
+          "banda_alta": 1.01
+        },
+        {
+          "hora": "20:45",
+          "prevista": 0.79,
+          "banda_baja": 0.65,
+          "banda_alta": 0.91
+        },
+        {
+          "hora": "21:00",
+          "prevista": 0.69,
+          "banda_baja": 0.57,
+          "banda_alta": 0.79
+        },
+        {
+          "hora": "21:15",
+          "prevista": 0.59,
+          "banda_baja": 0.48,
+          "banda_alta": 0.68
+        },
+        {
+          "hora": "21:30",
+          "prevista": 0.5,
+          "banda_baja": 0.41,
+          "banda_alta": 0.57
+        },
+        {
+          "hora": "21:45",
+          "prevista": 0.4,
+          "banda_baja": 0.33,
+          "banda_alta": 0.46
+        },
+        {
+          "hora": "22:00",
+          "prevista": 0.34,
+          "banda_baja": 0.28,
+          "banda_alta": 0.39
+        }
+      ]
+    }
+  },
+  "pesos_senales": [
+    {
+      "senal": "Observación de la Policía Local",
+      "peso": 0.9
+    },
+    {
+      "senal": "Taquilla",
+      "peso": 0.8
+    },
+    {
+      "senal": "Recuento wifi (fase 2)",
+      "peso": 0.6
+    },
+    {
+      "senal": "Usuarios de la app (anónimo)",
+      "peso": 0.5
+    },
+    {
+      "senal": "Modelo sobre histórico",
+      "peso": 0.3
+    }
+  ]
+}

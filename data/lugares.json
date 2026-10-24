@@ -1,0 +1,310 @@
+{
+  "ejemplo": true,
+  "aviso": "Lugares reales de Avilés con datos de ejemplo. Posiciones en una maqueta ilustrativa, no a escala.",
+  "lugares": [
+    {
+      "id": "teatro",
+      "nombre": "Teatro Palacio Valdés",
+      "categoria": "cultura",
+      "posicion": [
+        130,
+        -25
+      ],
+      "zona": "teatro",
+      "abierto": true,
+      "horario": "Taquilla 11:00–14:00 y desde 2 h antes de cada función",
+      "aforo": "Unas 800 butacas (ejemplo)",
+      "requiere_reserva": true,
+      "bajo_techo": true,
+      "gestor": "Ayuntamiento de Avilés",
+      "nivel": "gestiona",
+      "historia": "Teatro de principios del siglo XX que lleva el nombre del novelista Armando Palacio Valdés, que pasó su infancia en Avilés. Tras años cerrado se rehabilitó y hoy es uno de los escenarios de referencia de Asturias.",
+      "ejemplo": true
+    },
+    {
+      "id": "casa-cultura",
+      "nombre": "Casa de Cultura",
+      "categoria": "cultura",
+      "posicion": [
+        -85,
+        -45
+      ],
+      "zona": "plaza-espana",
+      "abierto": true,
+      "horario": "09:00–21:00 (ejemplo)",
+      "aforo": "Salón de actos de 300 plazas (ejemplo)",
+      "requiere_reserva": false,
+      "bajo_techo": true,
+      "gestor": "Ayuntamiento de Avilés",
+      "nivel": "gestiona",
+      "historia": "Centro cultural municipal con biblioteca, salas de exposiciones y salón de actos. Un punto de encuentro tranquilo en pleno centro, también los días de fiesta.",
+      "ejemplo": true
+    },
+    {
+      "id": "museo",
+      "nombre": "Museo de la Historia Urbana",
+      "categoria": "cultura",
+      "posicion": [
+        -165,
+        -35
+      ],
+      "zona": null,
+      "abierto": true,
+      "horario": "11:00–14:00 y 17:00–20:00 (ejemplo)",
+      "aforo": "60 personas (ejemplo)",
+      "requiere_reserva": false,
+      "bajo_techo": true,
+      "gestor": "Ayuntamiento de Avilés",
+      "nivel": "gestiona",
+      "historia": "Museo municipal que cuenta cómo ha cambiado Avilés: de villa medieval y puerto pesquero a ciudad industrial y cultural. Ideal para entender la ciudad antes de pasearla.",
+      "ejemplo": true
+    },
+    {
+      "id": "plaza-espana",
+      "nombre": "Plaza de España",
+      "categoria": "ocio",
+      "posicion": [
+        0,
+        0
+      ],
+      "zona": "plaza-espana",
+      "abierto": true,
+      "horario": "Espacio público, siempre abierto",
+      "aforo": "Unas 5.000 personas de pie (ejemplo)",
+      "requiere_reserva": false,
+      "bajo_techo": false,
+      "gestor": "Ayuntamiento de Avilés",
+      "nivel": "gestiona",
+      "historia": "Conocida como «El Parche», es el corazón de la villa. En ella se levanta el Ayuntamiento, con sus soportales, y aquí terminan muchas de las celebraciones del Antroxu.",
+      "ejemplo": true
+    },
+    {
+      "id": "galiana",
+      "nombre": "Calle Galiana",
+      "categoria": "ocio",
+      "posicion": [
+        -110,
+        180
+      ],
+      "zona": "galiana",
+      "abierto": true,
+      "horario": "Espacio público, siempre abierto",
+      "aforo": "Recorrido de unos 300 m (ejemplo)",
+      "requiere_reserva": false,
+      "bajo_techo": false,
+      "gestor": "Ayuntamiento de Avilés",
+      "nivel": "gestiona",
+      "historia": "Calle en cuesta con largos soportales a ambos lados, de las más reconocibles de Asturias. Cada Antroxu acoge el Descenso de Galiana, en el que la calle se baja a bordo de artefactos disfrazados.",
+      "ejemplo": true
+    },
+    {
+      "id": "orbon",
+      "nombre": "Plaza Hermanos Orbón",
+      "categoria": "comercio",
+      "posicion": [
+        130,
+        115
+      ],
+      "zona": "orbon",
+      "abierto": true,
+      "horario": "Mercado 08:00–14:00; plaza siempre abierta",
+      "aforo": "Unas 3.000 personas de pie (ejemplo)",
+      "requiere_reserva": false,
+      "bajo_techo": false,
+      "gestor": "Ayuntamiento de Avilés",
+      "nivel": "gestiona",
+      "historia": "Plaza porticada en torno al mercado de abastos. Es uno de los escenarios del tradicional mercado de los lunes y, en Antroxu, de la fiesta de la noche.",
+      "ejemplo": true
+    },
+    {
+      "id": "ferrera",
+      "nombre": "Parque de Ferrera",
+      "categoria": "deporte",
+      "posicion": [
+        -285,
+        170
+      ],
+      "zona": "ferrera",
+      "abierto": true,
+      "horario": "08:00–22:00 (ejemplo)",
+      "aforo": "Sin aforo fijo",
+      "requiere_reserva": false,
+      "bajo_techo": false,
+      "gestor": "Ayuntamiento de Avilés",
+      "nivel": "gestiona",
+      "historia": "Gran parque urbano junto al casco histórico, que ocupa los antiguos jardines del palacio de los marqueses de Ferrera. Zona de juegos, paseo y deporte para todas las edades.",
+      "ejemplo": true
+    },
+    {
+      "id": "muelle",
+      "nombre": "Parque del Muelle",
+      "categoria": "ocio",
+      "posicion": [
+        -90,
+        -100
+      ],
+      "zona": "muelle",
+      "abierto": true,
+      "horario": "Siempre abierto",
+      "aforo": "Sin aforo fijo",
+      "requiere_reserva": false,
+      "bajo_techo": false,
+      "gestor": "Ayuntamiento de Avilés",
+      "nivel": "gestiona",
+      "historia": "Zona verde junto a la ría, en el lugar donde la villa se asomaba a su antiguo muelle. Lugar de paseo de varias generaciones de avilesinos.",
+      "ejemplo": true
+    },
+    {
+      "id": "niemeyer",
+      "nombre": "Centro Niemeyer",
+      "categoria": "cultura",
+      "posicion": [
+        200,
+        -295
+      ],
+      "zona": "niemeyer",
+      "abierto": true,
+      "horario": "Concierto hoy a las 20:00 (ejemplo)",
+      "aforo": "Concierto al 40 % del aforo (ejemplo)",
+      "requiere_reserva": true,
+      "bajo_techo": true,
+      "gestor": "Fundación Centro Niemeyer (Principado de Asturias)",
+      "nivel": "coordina",
+      "historia": "Centro cultural internacional diseñado por el arquitecto brasileño Oscar Niemeyer e inaugurado en 2011 en la margen de la ría. Su cúpula, su torre mirador y su auditorio son ya una imagen de Avilés.",
+      "ejemplo": true
+    },
+    {
+      "id": "paseo-ria",
+      "nombre": "Paseo de la ría",
+      "categoria": "deporte",
+      "posicion": [
+        260,
+        -122
+      ],
+      "zona": "paseo-ria",
+      "abierto": true,
+      "horario": "Siempre abierto",
+      "aforo": "Sin aforo fijo",
+      "requiere_reserva": false,
+      "bajo_techo": false,
+      "gestor": "Autoridad Portuaria de Avilés",
+      "nivel": "coordina",
+      "historia": "Recorrido peatonal a la orilla de la ría, en terrenos del puerto. La ría ha sido el motor del Avilés marinero primero e industrial después.",
+      "ejemplo": true
+    },
+    {
+      "id": "camposagrado",
+      "nombre": "Palacio de Camposagrado · Escuela Superior de Arte",
+      "categoria": "cultura",
+      "posicion": [
+        65,
+        -58
+      ],
+      "zona": "plaza-espana",
+      "abierto": false,
+      "horario": "Cerrado en fin de semana (ejemplo)",
+      "aforo": "Exposiciones: 80 personas (ejemplo)",
+      "requiere_reserva": false,
+      "bajo_techo": true,
+      "gestor": "Principado de Asturias",
+      "nivel": "coordina",
+      "historia": "Palacio barroco junto a la Plaza de España que hoy acoge la Escuela Superior de Arte del Principado de Asturias.",
+      "ejemplo": true
+    },
+    {
+      "id": "hospital",
+      "nombre": "Hospital San Agustín",
+      "categoria": "servicios",
+      "posicion": [
+        340,
+        250
+      ],
+      "zona": null,
+      "abierto": true,
+      "horario": "Urgencias 24 h",
+      "aforo": "No aplica",
+      "requiere_reserva": false,
+      "bajo_techo": true,
+      "gestor": "Servicio de Salud del Principado de Asturias",
+      "nivel": "observa",
+      "historia": "Hospital de referencia del área sanitaria de Avilés. Mapa Vivo solo muestra la afluencia anónima de la calle que lo rodea; nunca datos del interior. (Posición ilustrativa en la maqueta.)",
+      "ejemplo": true
+    },
+    {
+      "id": "iglesia",
+      "nombre": "Iglesia de San Nicolás de Bari",
+      "categoria": "cultura",
+      "posicion": [
+        -55,
+        160
+      ],
+      "zona": null,
+      "abierto": true,
+      "horario": "Horario de culto (ejemplo)",
+      "aforo": "No aplica",
+      "requiere_reserva": false,
+      "bajo_techo": true,
+      "gestor": "Titular privado (parroquia)",
+      "nivel": "observa",
+      "historia": "Templo de origen medieval en el casco histórico, ligado durante siglos a la comunidad franciscana. Uno de los edificios más antiguos de la villa.",
+      "ejemplo": true
+    },
+    {
+      "id": "centro-comercial",
+      "nombre": "Centro comercial de ejemplo",
+      "categoria": "comercio",
+      "posicion": [
+        330,
+        40
+      ],
+      "zona": null,
+      "abierto": true,
+      "horario": "10:00–22:00 (ejemplo)",
+      "aforo": "No publicado",
+      "requiere_reserva": false,
+      "bajo_techo": true,
+      "gestor": "Titular privado",
+      "nivel": "observa",
+      "historia": "Comercio de ejemplo. Los espacios privados solo aparecen con la afluencia anónima de la calle de alrededor, salvo que se adhieran al programa de comercio local.",
+      "ejemplo": true
+    },
+    {
+      "id": "cafeteria",
+      "nombre": "Cafetería de ejemplo",
+      "categoria": "comercio",
+      "posicion": [
+        -91,
+        230
+      ],
+      "zona": "galiana",
+      "abierto": true,
+      "horario": "08:00–23:00 (ejemplo)",
+      "aforo": "40 personas (ejemplo)",
+      "requiere_reserva": false,
+      "bajo_techo": true,
+      "gestor": "Titular privado · adherido al QR de beneficios",
+      "nivel": "observa",
+      "historia": "Negocio de ejemplo adherido al QR de beneficios: enseña tu QR personal y obtén un descuento. No es un negocio real.",
+      "ejemplo": true
+    },
+    {
+      "id": "panaderia",
+      "nombre": "Panadería de ejemplo",
+      "categoria": "comercio",
+      "posicion": [
+        190,
+        165
+      ],
+      "zona": "orbon",
+      "abierto": true,
+      "horario": "07:30–14:00 y 17:00–20:30 (ejemplo)",
+      "aforo": "12 personas (ejemplo)",
+      "requiere_reserva": false,
+      "bajo_techo": true,
+      "gestor": "Titular privado · adherido al QR de beneficios",
+      "nivel": "observa",
+      "historia": "Negocio de ejemplo adherido al QR de beneficios. Los comercios adheridos ayudan a sostener la plataforma. No es un negocio real.",
+      "ejemplo": true
+    }
+  ]
+}

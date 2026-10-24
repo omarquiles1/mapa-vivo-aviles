@@ -1,0 +1,174 @@
+{
+  "ejemplo": true,
+  "aviso": "Alertas de ejemplo para la demo del panel municipal.",
+  "alertas": [
+    {
+      "id": "a1",
+      "hora": "17:30",
+      "zona": "galiana",
+      "tipo": "Preaviso de aglomeración",
+      "nivel": "alta",
+      "texto": "El modelo prevé que Galiana pase a Vigilancia hacia las 18:00, con el inicio del Descenso.",
+      "destinatario": "Policía Local",
+      "fuentes": [
+        {
+          "f": "Modelo sobre histórico",
+          "p": 0.55
+        },
+        {
+          "f": "Agenda municipal",
+          "p": 0.3
+        },
+        {
+          "f": "Usuarios de la app",
+          "p": 0.15
+        }
+      ],
+      "ejemplo": true
+    },
+    {
+      "id": "a2",
+      "hora": "18:00",
+      "zona": "galiana",
+      "tipo": "Aglomeración",
+      "nivel": "vigilancia",
+      "texto": "Galiana pasa a Vigilancia (≥ 2 personas/m²).",
+      "destinatario": "Policía Local",
+      "fuentes": [
+        {
+          "f": "Observación de la Policía Local",
+          "p": 0.5
+        },
+        {
+          "f": "Usuarios de la app",
+          "p": 0.3
+        },
+        {
+          "f": "Modelo sobre histórico",
+          "p": 0.2
+        }
+      ],
+      "ejemplo": true
+    },
+    {
+      "id": "a3",
+      "hora": "18:40",
+      "zona": "rivero",
+      "tipo": "Desperfecto",
+      "nivel": "baja",
+      "texto": "Farola apagada en calle Rivero.",
+      "destinatario": "Cuida Avilés",
+      "fuentes": [
+        {
+          "f": "Aviso ciudadano en la app",
+          "p": 1
+        }
+      ],
+      "ejemplo": true
+    },
+    {
+      "id": "a4",
+      "hora": "18:50",
+      "zona": "galiana",
+      "tipo": "Urgencia sanitaria",
+      "nivel": "critico",
+      "texto": "Persona indispuesta a mitad de Galiana. Se muestra el botón de llamada al 112.",
+      "destinatario": "112",
+      "fuentes": [
+        {
+          "f": "Aviso ciudadano en la app",
+          "p": 0.7
+        },
+        {
+          "f": "Observación de la Policía Local",
+          "p": 0.3
+        }
+      ],
+      "ejemplo": true
+    },
+    {
+      "id": "a5",
+      "hora": "19:35",
+      "zona": "paseo-ria",
+      "tipo": "Incidencia en la ría",
+      "nivel": "media",
+      "texto": "Objeto flotando en el agua junto al paseo de la ría.",
+      "destinatario": "Autoridad Portuaria",
+      "fuentes": [
+        {
+          "f": "Aviso ciudadano en la app",
+          "p": 1
+        }
+      ],
+      "ejemplo": true
+    },
+    {
+      "id": "a6",
+      "hora": "19:50",
+      "zona": "niemeyer",
+      "tipo": "Acceso a recinto",
+      "nivel": "media",
+      "texto": "Cola en la pasarela de acceso al Niemeyer antes del concierto.",
+      "destinatario": "Centro Niemeyer (gestor del espacio)",
+      "fuentes": [
+        {
+          "f": "Taquilla",
+          "p": 0.6
+        },
+        {
+          "f": "Usuarios de la app",
+          "p": 0.4
+        }
+      ],
+      "ejemplo": true
+    },
+    {
+      "id": "a7",
+      "hora": "20:15",
+      "zona": "orbon",
+      "tipo": "Preaviso de aglomeración",
+      "nivel": "alta",
+      "texto": "Pico previsto en la Plaza Hermanos Orbón a las 21:00, cerca de Vigilancia.",
+      "destinatario": "Policía Local",
+      "fuentes": [
+        {
+          "f": "Modelo sobre histórico",
+          "p": 0.6
+        },
+        {
+          "f": "Agenda municipal",
+          "p": 0.25
+        },
+        {
+          "f": "Usuarios de la app",
+          "p": 0.15
+        }
+      ],
+      "ejemplo": true
+    },
+    {
+      "id": "a8",
+      "hora": "21:30",
+      "zona": "plaza-espana",
+      "tipo": "Fin de evento",
+      "nivel": "alta",
+      "texto": "Termina el concierto: se recomienda salida escalonada hacia Rivero y el Muelle.",
+      "destinatario": "Policía Local",
+      "fuentes": [
+        {
+          "f": "Agenda municipal",
+          "p": 0.5
+        },
+        {
+          "f": "Usuarios de la app",
+          "p": 0.3
+        },
+        {
+          "f": "Modelo sobre histórico",
+          "p": 0.2
+        }
+      ],
+      "ejemplo": true
+    }
+  ]
+}
